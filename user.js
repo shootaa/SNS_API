@@ -7,7 +7,7 @@ function info() {
   const password = document.getElementById('password').value;
   const password_confirmation = document.getElementById('password_confirmation').value;
 
-  var url = 'https://teachapi.herokuapp.com/sign_up';
+  const url = 'https://teachapi.herokuapp.com/sign_up';
 
   const user = {
     sign_up_user_params: {
