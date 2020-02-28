@@ -1,26 +1,33 @@
 
 //ここからユーザー登録
-function info(){
-const name = document.getElementById('name').value;
-const bio = document.getElementById('bio').value;
-const email = document.getElementById('email').value;
-const password = document.getElementById('password').value;
-const password_confirmation= document.getElementById('password_confirmation').value;
+function info() {
+  const name = document.getElementById('name').value;
+  const bio = document.getElementById('bio').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const password_confirmation = document.getElementById('password_confirmation').value;
 
+  var url = 'https://teachapi.herokuapp.com/sign_up';
 
-var url = 'https://teachapi.herokuapp.com/sign_up';
-const sign_up_user_params = [name,bio,email,password,password_confirmation];
+  const user = {
+    sign_up_user_params: {
+      name: name,
+      bio: bio,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    }
+  };
 
-fetch(url, {
-  method: 'POST', 
-  body: JSON.stringify(sign_up_user_params), 
-  headers:{
-    'Content-Type': 'application/json'
-  }
-}).then(res => res.json())
-.then(response => console.log('Success:', JSON.stringify(response)))
-.catch(error => console.error('Error:', error));
-
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
 };
 
 
