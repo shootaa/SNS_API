@@ -5,7 +5,7 @@ function info() {
   const bio = document.getElementById('bio').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const password_confirmation = document.getElementById('password_confirmation').value;
+  const passwordConfirmation = document.getElementById('password_confirmation').value;
 
   const url = 'https://teachapi.herokuapp.com/sign_up';
 
@@ -15,7 +15,7 @@ function info() {
       bio: bio,
       email: email,
       password: password,
-      password_confirmation: password_confirmation
+      password_confirmation: passwordConfirmation
     }
   };
 
@@ -31,23 +31,56 @@ function info() {
 };
 
 
+
+
+
+
+
 //ここからログイン
+function logIn() {
+  const email = document.getElementById('log_email').value;
+  const password = document.getElementById('log_password').value;
+  const passwordConfirmation = document.getElementById('log_password_confirmation').value;
+  const url = 'https://teachapi.herokuapp.com/sign_up';
+  const log = {
+    sign_in_user_params: {
+      email: email,
+      password: password,
+      password_confirmation: passwordConfirmation
+    }
+  };
+  
+    
 
-//ここからユーザー一覧
 
-//ここから投稿一覧
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(log),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
+};
 
-//ここからユーザー編集
 
-//ここからユーザー削除
 
-//ここからユーザーのタイムライン
+//ここからユーザー一覧　ヘッダーにトークン
 
-//ここから投稿作成
+//ここから投稿一覧　ヘッダーにトークン
 
-//ここから投稿編集
+//ここからユーザー編集　ヘッダーにトークン
 
-//ここkら投稿削除
+//ここからユーザー削除　ヘッダーにトークン
+
+//ここからユーザーのタイムライン　ヘッダーにトークン
+
+//ここから投稿作成　ヘッダーにトークン
+
+//ここから投稿編集　ヘッダーにトークン
+
+//ここkら投稿削除　ヘッダーにトークン
 
 
 
