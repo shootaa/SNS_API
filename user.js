@@ -29,19 +29,12 @@ function info() {
     .then(response => console.log('Success:', JSON.stringify(response)))
     .catch(error => console.error('Error:', error));
 };
-
-
-
-
-
-
-
 //ここからログイン
 function logIn() {
   const email = document.getElementById('log_email').value;
   const password = document.getElementById('log_password').value;
   const passwordConfirmation = document.getElementById('log_password_confirmation').value;
-  const url = 'https://teachapi.herokuapp.com/sign_up';
+  const url = 'https://teachapi.herokuapp.com/sign_in';
   const log = {
     sign_in_user_params: {
       email: email,
@@ -49,9 +42,6 @@ function logIn() {
       password_confirmation: passwordConfirmation
     }
   };
-  
-    
-
 
   fetch(url, {
     method: 'POST',
