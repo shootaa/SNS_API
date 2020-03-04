@@ -107,6 +107,22 @@ function userEdit() {
 
 
 //ここからユーザー削除　ヘッダーにトークン
+function userDelete() {
+  const id = localStorage.getItem('ID');
+  const url = ' https://teachapi.herokuapp.com/users/';
+  fetch(url+id, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    }
+  }).then(res => res.json())
+    .then(json => {
+      console.log(json)
+    })
+    .catch(error => console.error('Error:', error));
+};
+
 
 
 //ここから投稿作成　ヘッダーにトークン
