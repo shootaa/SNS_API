@@ -212,6 +212,26 @@ function postList() {
 };
 
 //ここからユーザーのタイムライン　ヘッダーにトークン
+function userTimeLine() {
+  const page = document.getElementById('user_page').value;
+  const limit = document.getElementById('user_limit').value;
+  const query = document.getElementById('user_query').value;
+  const id = document.getElementById('user_id').value;
+  const url = 'https://teachapi.herokuapp.com/users/';
+
+
+  fetch(url + id + '/timeline' + '/?page=' + page + '&limit=' + limit + '&query=' + query, {
+    method: 'GET',
+
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem("token")
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response))
+    )
+    .catch(error => console.error('Error:', error));
+};
 
 
 
