@@ -169,6 +169,26 @@ function postEdit() {
 };
 
 //ここkら投稿削除　ヘッダーにトークン
+function postDelete() {
+  const postId = document.getElementById('postDelete').value;
+  const url = 'https://teachapi.herokuapp.com/posts/';
+  const post = {
+    post_params: {
+      text: text
+    }
+  };
+  fetch(url + postId, {
+    method: 'DELETE',
+    body: JSON.stringify(post),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
+};
+
 
 //ここから投稿一覧　ヘッダーにトークン
 function postList() {
