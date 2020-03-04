@@ -91,7 +91,7 @@ function userEdit() {
       bio: bio,
     }
   };
-  fetch(url+id, {
+  fetch(url + id, {
     method: 'PUT',
     body: JSON.stringify(edit),
     headers: {
@@ -110,7 +110,7 @@ function userEdit() {
 function userDelete() {
   const id = localStorage.getItem('ID');
   const url = ' https://teachapi.herokuapp.com/users/';
-  fetch(url+id, {
+  fetch(url + id, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -126,6 +126,25 @@ function userDelete() {
 
 
 //ここから投稿作成　ヘッダーにトークン
+function postCreate() {
+  const text = document.getElementById('text').value;
+  const url = 'https://teachapi.herokuapp.com/posts';
+  const post = {
+    post_params: {
+      text: text
+    }
+  };
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    }
+  }).then(res => res.json())
+    .then(response => console.log('Success:', JSON.stringify(response)))
+    .catch(error => console.error('Error:', error));
+};
 
 //ここから投稿編集　ヘッダーにトークン
 
