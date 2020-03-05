@@ -168,7 +168,7 @@ function postEdit() {
     .catch(error => console.error('Error:', error));
 };
 
-//ここkら投稿削除　ヘッダーにトークン
+//ここから投稿削除　ヘッダーにトークン
 function postDelete() {
   const postId = document.getElementById('postDelete').value;
   const url = 'https://teachapi.herokuapp.com/posts/';
