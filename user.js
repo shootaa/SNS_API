@@ -16,7 +16,6 @@ function info() {
       password_confirmation: passwordConfirmation
     }
   };
-
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(user),
@@ -29,6 +28,7 @@ function info() {
     })
     .catch(error => console.error('Error:', error));
 };
+
 //ここからログイン
 function logIn() {
   const email = document.getElementById('log_email').value;
@@ -85,7 +85,7 @@ function userList() {
 function userEdit() {
   const name = document.getElementById('name_edit').value;
   const bio = document.getElementById('bio_edit').value;
-  const id = localStorage.getItem('ID');
+  const id = document.getElementById('user_Id').value;;
   const url = 'https://teachapi.herokuapp.com/users/';
   const edit = {
     user_params: {
@@ -107,10 +107,9 @@ function userEdit() {
     .catch(error => console.error('Error:', error));
 };
 
-
 //ここからユーザー削除　ヘッダーにトークン
 function userDelete() {
-  const id = localStorage.getItem('ID');
+  const id = document.getElementById('id').value;
   const url = 'https://teachapi.herokuapp.com/users/';
   fetch(url + id, {
     method: 'DELETE',
@@ -124,8 +123,6 @@ function userDelete() {
     })
     .catch(error => console.error('Error:', error));
 };
-
-
 
 //ここから投稿作成　ヘッダーにトークン
 function postCreate() {
@@ -197,18 +194,14 @@ function postDelete() {
     .catch(error => console.error('Error:', error));
 };
 
-
 //ここから投稿一覧　ヘッダーにトークン
 function postList() {
   const page = document.getElementById('post_page').value;
   const limit = document.getElementById('post_limit').value;
   const query = document.getElementById('post_query').value;
   const url = 'https://teachapi.herokuapp.com/posts';
-
-
   fetch(url + '/?page=' + page + '&limit=' + limit + '&query=' + query, {
     method: 'GET',
-
     headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem("token")
@@ -227,11 +220,8 @@ function userTimeLine() {
   const query = document.getElementById('user_query').value;
   const id = document.getElementById('user_id').value;
   const url = 'https://teachapi.herokuapp.com/users/';
-
-
   fetch(url + id + '/timeline' + '/?page=' + page + '&limit=' + limit + '&query=' + query, {
     method: 'GET',
-
     headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem("token")
