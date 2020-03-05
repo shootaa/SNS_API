@@ -24,7 +24,9 @@ function info() {
       'Content-Type': 'application/json'
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 //ここからログイン
@@ -84,7 +86,7 @@ function userEdit() {
   const name = document.getElementById('name_edit').value;
   const bio = document.getElementById('bio_edit').value;
   const id = localStorage.getItem('ID');
-  const url = ' https://teachapi.herokuapp.com/users/';
+  const url = 'https://teachapi.herokuapp.com/users/';
   const edit = {
     user_params: {
       name: name,
@@ -109,7 +111,7 @@ function userEdit() {
 //ここからユーザー削除　ヘッダーにトークン
 function userDelete() {
   const id = localStorage.getItem('ID');
-  const url = ' https://teachapi.herokuapp.com/users/';
+  const url = 'https://teachapi.herokuapp.com/users/';
   fetch(url + id, {
     method: 'DELETE',
     headers: {
@@ -142,7 +144,9 @@ function postCreate() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 
@@ -150,7 +154,7 @@ function postCreate() {
 function postEdit() {
   const postId = document.getElementById('postId').value;
   const text = document.getElementById('textEdit').value;
-  const url = ' https://teachapi.herokuapp.com/posts/';
+  const url = 'https://teachapi.herokuapp.com/posts/';
   const post = {
     post_params: {
       text: text
@@ -164,7 +168,9 @@ function postEdit() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 
@@ -185,7 +191,9 @@ function postDelete() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 
@@ -206,8 +214,9 @@ function postList() {
       'Authorization': 'Bearer ' + localStorage.getItem("token")
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response))
-    )
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 
@@ -228,8 +237,9 @@ function userTimeLine() {
       'Authorization': 'Bearer ' + localStorage.getItem("token")
     }
   }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response))
-    )
+    .then(json => {
+      console.log(json)
+    })
     .catch(error => console.error('Error:', error));
 };
 
