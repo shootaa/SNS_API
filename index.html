@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h1>ユーザー登録</h1>
+        <input type="text" id="name" placeholder="name"><br>
+        <textarea id="bio" cols="30" rows="10" placeholder="biography"></textarea><br>
+        <input type="email" id="email" placeholder="email"><br>
+        <input type="password" id="password" placeholder="password"><br>
+        <input type="password" id="password_confirmation" placeholder="confirm"><br>
+        <input type="submit" value="send" onclick="info();">
+    </section>
+
+    <section>
+        <h1>ログイン画面</h1>
+        <input type="email" id="log_email" placeholder="email"><br>
+        <input type="password" id="log_password" placeholder="password"><br>
+        <input type="password" id="log_password_confirmation" placeholder="confirm"><br>
+        <input type="submit" value="send" onclick="logIn();">
+    </section>
+
+    <section>
+        <h1>ユーザー一覧</h1>
+        <input type="text" id="page" placeholder="page"><br>
+        <input type="text" id="limit" placeholder="limit"><br>
+        <input type="text" id="query" placeholder="query"><br>
+        <input type="submit" value="send" onclick="userList();">
+    </section>
+
+    <section>
+        <h1>ユーザー編集</h1>
+        <p>ユーザーID</p>
+        <input type="text" id="user_Id" placeholder="userId"><br>
+        <p>編集後のユーザー</p>
+        <input type="text" id="name_edit" placeholder="name"><br>
+        <textarea type="text" id="bio_edit" placeholder="bio"></textarea><br>
+        <input type="submit" value="send" onclick="userEdit();">
+    </section>
+
+    <section>
+        <h1>ユーザー削除</h1>
+        <input type="text" id="id" placeholder="userid"><br>
+        <input type="submit" value="send" onclick="userDelete();">
+    </section>
+
+    <section>
+        <h1>投稿作成</h1>
+        <textarea type="text" id="text" placeholder="post"></textarea><br>
+        <input type="submit" value="send" onclick="postCreate();">
+    </section>
+
+    <section>
+        <h1>投稿編集</h1>
+        <p>投稿のID</p>
+        <input type="text" id="postId" placeholder="postId"><br>
+        <p>変更後の投稿</p>
+        <textarea type="text" id="textEdit" placeholder="post"></textarea><br>
+        <input type="submit" value="send" onclick="postEdit();">
+    </section>
+
+    <section>
+        <h1>投稿削除</h1>
+        <p>投稿のID</p>
+        <input type="text" id="postDelete" placeholder="postId"><br>
+        <input type="submit" value="delete" onclick="postDelete();">
+    </section>
+
+    <section>
+        <h1>投稿一覧</h1>
+        <input type="text" id="post_page" placeholder="page"><br>
+        <input type="text" id="post_limit" placeholder="limit"><br>
+        <input type="text" id="post_query" placeholder="query"><br>
+        <input type="submit" value="send" onclick="postList();">
+    </section>
+
+    <section>
+        <h1>ユーザーのタイムライン</h1>
+        <input type="text" id="user_id" placeholder="userId"><br>
+        <input type="text" id="user_page" placeholder="page"><br>
+        <input type="text" id="user_limit" placeholder="limit"><br>
+        <input type="text" id="user_query" placeholder="query"><br>
+        <input type="submit" value="send" onclick="userTimeLine();">
+    </section>
+
+    <script src="user.js"></script>
+</body>
+
+</html>
